@@ -1,0 +1,11 @@
+#!/bin/bash
+# Run docker container with signal-cli and pass any and all
+# parameters to it
+
+CONTAINER_NAME=signal
+CONFIGURATION_VOLUME=$HOME/.local/share/signal-cli
+DOCKER=docker
+
+mkdir -p $CONFIGURATION_VOLUME
+
+${DOCKER} run -v ${CONFIGURATION_VOLUME}:/etc/signal-cli:z ${CONTAINER_NAME} "$@"
