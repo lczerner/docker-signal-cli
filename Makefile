@@ -7,7 +7,7 @@ CMDS := all build install
 all: build
 
 build:
-	$(DOCKER) build -t $(CONTAINER_NAME) -f Dockerfile
+	$(DOCKER) build -t $(CONTAINER_NAME) .
 
 install:
 	@mkdir -p $(INSTALL_DIR)
