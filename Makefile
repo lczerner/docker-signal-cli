@@ -9,7 +9,7 @@ CMDS := all build install
 all: build
 
 build:
-	$(DOCKER) build --build-arg signal_cli_version=$(SIGNAL_CLI_VERSION) -t $(CONTAINER_NAME) .
+	$(DOCKER) build --build-arg SIGNAL_CLI_VERSION=$(SIGNAL_CLI_VERSION) -t $(CONTAINER_NAME) .
 
 install:
 	@mkdir -p $(INSTALL_DIR)
