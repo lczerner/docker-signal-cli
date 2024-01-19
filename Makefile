@@ -9,7 +9,12 @@ CMDS := all build install
 all: build
 
 build:
-	$(DOCKER) build --build-arg SIGNAL_CLI_VERSION=$(SIGNAL_CLI_VERSION) -t $(CONTAINER_NAME) .
+	$(DOCKER) build $(DOCKER_PARAM) --build-arg SIGNAL_CLI_VERSION=$(SIGNAL_CLI_VERSION) -t $(CONTAINER_NAME) .
+
+rebuild: _rebuild_param build
+
+_rebuild_param:
+	$(eval DOCKER_PARAM := --no-cache)
 
 install:
 	@mkdir -p $(INSTALL_DIR)
